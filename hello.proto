@@ -1,0 +1,17 @@
+syntax = "proto3";
+option go_package = "rpc";
+
+message Empty{}
+
+message Greeting{
+  string message = 1;
+}
+
+message Time {
+  string timestamp = 1;
+}
+
+service MainService {
+  rpc Hello(Empty) returns (Greeting);
+  rpc Clock(Empty) returns (stream Time);
+}
