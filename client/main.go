@@ -24,7 +24,7 @@ const (
 )
 
 func main() {
-	srvCfg := client.WithServerAddr("sparkling-snow-2014.fly.dev:443")
+	srvCfg := client.WithServerAddr("fly-.fly.dev:443")
 	encoder := iocodec.JSONEncoderMaker(true)
 	jsonCfg := client.WithOutputEncoder("json", encoder)
 	flagBinder := func(fs *pflag.FlagSet, namer naming.Namer) {
