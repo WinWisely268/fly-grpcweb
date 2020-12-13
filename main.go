@@ -15,6 +15,8 @@ import (
 	"time"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
+
 	"grpc-test/rpc"
 )
 
@@ -61,6 +63,7 @@ func main() {
 	server := grpc.NewServer()
 	service := mainService{}
 	rpc.RegisterMainServiceService(server, &rpc.MainServiceService{Clock: service.Clock, Hello: service.Hello})
+	reflection.Register(server)
 	grpcWebServer := registerGrpcWebServer(server)
 	handler := HttpHandler{}
 	httpServer := createHttpHandler(log.New(os.Stdout, "grpcweb-test", 1), true, handler, grpcWebServer)
