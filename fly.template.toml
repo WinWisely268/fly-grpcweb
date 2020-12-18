@@ -1,5 +1,7 @@
 # fly.toml file generated for late-moon-415 on 2020-12-14T00:48:55+07:00
 
+app = "late-moon-415"
+
 [build]
 builtin = "go"
 
