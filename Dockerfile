@@ -1,5 +1,5 @@
 # BUILD DOCKER / PODMAN IMAGE
-FROM cirrusci/flutter:beta as builder
+FROM ubuntu:20.04 as builder
 RUN apt update && \
     add-apt-repository ppa:longsleep/golang-backports
 RUN apt install -y ca-certificates build-essential git golang-go libnss3-tools

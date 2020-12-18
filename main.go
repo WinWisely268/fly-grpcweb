@@ -56,6 +56,15 @@ func (h HttpHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) { // crea
 }
 
 func main() {
+	for _, pair := range os.Environ() {
+		log.Print("====================")
+		log.Print(pair)
+		log.Print("====================")
+	}
+	testSecret := os.Getenv("TEST_SECRET")
+	if testSecret == "" {
+		log.Fatalf("unable to load TEST_SECRET: it's empty")
+	}
 	listener, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
